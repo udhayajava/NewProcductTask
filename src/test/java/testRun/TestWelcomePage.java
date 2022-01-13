@@ -14,12 +14,13 @@ public class TestWelcomePage extends MyBrowser {
         Assert.assertTrue(pages.logoIsDisplayed());
         Assert.assertTrue(pages.orderButton());
         Assert.assertTrue(pages.searchButton());
-        pages.searchBox(properties.getProperty("SearchText"));
+        pages.searchBox();
         SearchTest test = new SearchTest();
         test.verifySearchContent();
         test.searchProduct();
         test.verifySearchResult();
         test.findMaxAndMinPriceOfProduct();
+        test.productInStock();
     }
 }
 

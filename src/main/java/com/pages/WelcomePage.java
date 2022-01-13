@@ -2,14 +2,15 @@ package com.pages;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import seleniumBase.MyBrowser;
 
-import java.util.*;
+
+import static Reusables.Use.inputText;
+import static Reusables.Use.driver;
 
 public class WelcomePage extends MyBrowser {
 
-    WebDriverWait wait;
+
 
     public boolean urlCheck() {
         return driver.getCurrentUrl().equals(properties.getProperty("Url"));
@@ -28,12 +29,10 @@ public class WelcomePage extends MyBrowser {
     }
 
 
-    public void searchBox(String searchText) {
-        WebElement searchBox = driver.findElement(By.xpath(properties.getProperty("searchBox")));
-        searchBox.sendKeys(searchText + Keys.ENTER);
+    public void searchBox() {
+        WebElement searchBox = driver.findElement(By.xpath(properties.getProperty("SearchBox")));
+        inputText(searchBox, properties.getProperty("SearchText"));
     }
-
-
 
 
 }
